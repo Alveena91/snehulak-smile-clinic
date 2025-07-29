@@ -1,4 +1,4 @@
-﻿// Smooth Scrolling, Menu, Cookies, Privacy 
+// Smooth Scrolling, Menu, Cookies, Privacy 
 document.addEventListener("DOMContentLoaded", function () {
     // Smooth scroll for navigation links and scroll arrow
     document.querySelectorAll('nav a[href^="#"], .scroll-arrow').forEach(link => {
@@ -134,6 +134,10 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("mainForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    // Disable the submit button to prevent double submission
+    const submitBtn = this.querySelector('button[type="submit"], input[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+
     const formData = {
         email: document.getElementById("email").value,
         firstName: document.getElementById("firstName").value,
@@ -160,5 +164,10 @@ document.getElementById("mainForm").addEventListener("submit", async function (e
         document.getElementById("errorMessage").textContent = "Something went wrong.";
         document.getElementById("errorMessage").style.display = "block";
         document.getElementById("successMessage").style.display = "none";
+    } finally {
+        // Re-enable the submit button after a short delay
+        setTimeout(() => {
+            if (submitBtn) submitBtn.disabled = false;
+        }, 1500);
     }
 });
