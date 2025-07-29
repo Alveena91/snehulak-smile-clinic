@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snehulak Smile Dental Clinic Dashboard</title>
+  <link rel="stylesheet" href="dashboard_style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Side Navigation Bar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>Dashboard</h2>
+      </div>
+      <ul class="nav">
+        <li><a href="#allAppointments">All Appointments</a></li>
+        <li><a href="#futureAppointments">Future Appointments</a></li>
+        <li><a href="#pastAppointments">Past Appointments</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1 class="dashboard-header" id="usernameLabel">Welcome, Staff</h1>
+
+      <div class="dashboard-content">
+        <!-- All Appointments -->
+        <div id="allAppointments" class="card active">
+          <div class="card-header">All Appointments</div>
+          <div class="card-body">
+            <table class="gridview" id="allTable"></table>
+          </div>
+        </div>
+
+        <!-- Future Appointments -->
+        <div id="futureAppointments" class="card">
+          <div class="card-header">Future Appointments</div>
+          <div class="card-body">
+            <table class="gridview" id="futureTable"></table>
+          </div>
+        </div>
+
+        <!-- Past Appointments -->
+        <div id="pastAppointments" class="card">
+          <div class="card-header">Past Appointments</div>
+          <div class="card-body">
+            <table class="gridview" id="pastTable"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard_java.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="Loginstylesheet.css" />
+  <title>Login Page</title>
+</head>
+<body>
+  <div class="login-background">
+    <div class="login-box">
+      <h2>Staff Login Page</h2>
+
+      <p id="lblMessage" style="color: red;"></p>
+
+      <form id="loginForm">
+        <div class="input-field">
+          <input type="text" class="input-box" id="regUsername" required>
+          <label for="regUsername">Username</label>
+        </div>
+
+        <!-- Password input with toggle visibility -->
+        <div class="input-field">
+          <input type="password" class="input-box" id="log2Password" required>
+          <label for="log2Password">Password</label>
+          <div class="eye-area">
+            <div class="eye-box" onclick="myLogPassword()">
+              <i class="fa-regular fa-eye" id="eye-2"></i>
+              <i class="fa-regular fa-eye-slash" id="eye-slash-2"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Login button redirects to staff page -->
+        <div class="input-field">
+          <a href="dashboard.html">
+            <input type="submit" class="input-submit" value="Login in" required>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        username: document.getElementById('regUsername').value,
+        password: document.getElementById('log2Password').value,
+      };
+
+      const res = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        window.location.href = '/dashboard.html';
+      } else {
+        document.getElementById('lblMessage').textContent = result.message;
+      }
+    });
+  </script>
+</body>
+</html>

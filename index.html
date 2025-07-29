@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <title>Sněhulák Smile Dental Clinic</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="content">
+        <nav class="navbar">
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#About">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#our-team">Our Team</a></li>
+                <li><a href="#Registration">Registration</a></li>
+                <li><a href="#Contact">Contact Us</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Home Section -->
+        <section id="Home" class="Home active">
+            <h1 class="welcome-heading">Welcome to Sněhulák Smile Dental Clinic</h1>
+            <div class="text-container">
+                <div class="text">Your smile is our priority.</div>
+                <div class="text">We provide top-notch dental care.</div>
+                <div class="text">Book your appointment today!</div>
+            </div>
+        </section>
+
+	<!-- About us -->
+    <section id="About" class="about-section">
+        <div class="about-container">
+            <div class="about-heading">
+                <h1>About Us</h1>
+            </div>
+            <div class="about-image">
+                <img src="https://antonovich-design.ae/uploads/gallery/2022/3/antonovich-design-2022rTjCvgf83x14.jpg" alt="About Us Image"/>
+            </div>
+            <div class="about-content">
+                <p>Sněhulák Smile Dental Clinic is an award-winning dental clinic in town and the largest in the country. Founded in 2000. 
+                    We provide a wide range of procedures, from preventative dentistry to complex full-mouth rehabilitation and smile makeovers, 
+                    all delivered in a relaxing setting using cutting-edge technology. 
+                    Our in-house dental laboratory guarantees exceptional prosthetic quality. We look forward to providing you with the greatest quality dental care.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Choose us section -->
+    <section id="choose-us" class="choose-us-section">
+        <h1>Why Choose Us?</h1>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">💰</div>
+                <h2>No Hidden Fees</h2>
+                <p>Transparent pricing for all services.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🛠️</div>
+                <h2>Customizable Plans</h2>
+                <p>Tailored treatments that suit your needs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🏆</div>
+                <h2>Top Dentists</h2>
+                <p>Expert care from qualified professionals.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔬</div>
+                <h2>Latest Technologies</h2>
+                <p>Modern equipment for precise diagnostics.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📋</div>
+                <h2>Detailed Diagnostics</h2>
+                <p>Comprehensive analysis for better care.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Service section -->
+    <section id="services" class="services-section">
+        <h1 style="color: #675038;">Our Services</h1>
+        <p>We provide the best-of-best dental services to ensure all patients have the best treatments for their dental problems...</p>
+                <div class="services-swiper">
+        <!-- Service Cards with Image Slots -->
+        <div class="service-card" onclick="showServiceDetail('cleaning')">
+            <div class="service-image">
+                <img src="https://i.pinimg.com/736x/48/9b/47/489b47d101893e900b445667ac588ca7.jpg" alt="Teeth Cleaning"/>
+            </div>
+            <h2 style="color: #675038;">Teeth Cleaning</h2>
+            <p>Routine cleaning to maintain a healthy smile.</p>
+        </div>
+        <div class="service-card" onclick="showServiceDetail('radiology')">
+            <div class="service-image">
+                <img src="https://i.pinimg.com/736x/1e/df/b2/1edfb20848094a9baf2a07cbb4854ff7.jpg" alt="Dental Radiology"/>
+            </div>
+            <h2 style="color: #675038;">Dental Radiology</h2>
+            <p>Advanced imaging for accurate diagnosis.</p>
+        </div>
+        <div class="service-card" onclick="showServiceDetail('emergency')">
+            <div class="service-image">
+                <img src="https://i.pinimg.com/736x/7d/20/91/7d20919d1b1853f981fdfeb4aae9b796.jpg" alt="Dental Emergency"/>
+            </div>
+            <h2 style="color: #675038;">Dental Emergency</h2>
+            <p>Immediate care for urgent dental issues.</p>
+        </div>
+        <div class="service-card" onclick="showServiceDetail('whitening')">
+            <div class="service-image">
+                <img src="https://i.pinimg.com/736x/d7/eb/51/d7eb513aca1a6b1bd1fefedf81f7a4db.jpg" alt="Teeth Whitening"/>
+            </div>
+            <h2 style="color: #675038;">Teeth Whitening</h2>
+            <p>Professional whitening for brighter smiles.</p>
+        </div>
+        <div class="service-card" onclick="showServiceDetail('extraction')">
+            <div class="service-image">
+                <img src="https://denta1.de/wp-content/uploads/2024/06/0007zahnarzt-herne-denta1-74.jpg" alt="Tooth Extraction"/>
+            </div>
+            <h2 style="color: #675038;">Tooth Extraction</h2>
+            <p>Safe removal of problematic teeth.</p>
+        </div>
+        <div class="service-card" onclick="showServiceDetail('braces')">
+            <div class="service-image">
+                <img src="https://neyodental.co.uk/wp-content/smush-webp/2023/05/home-carousel-3.jpg.webp" alt="Braces & Aligners"/>
+            </div>
+            <h2 style="color: #675038;">Braces & Aligners</h2>
+            <p>Solutions for a straighter smile.</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- Doctors section -->
+    <section id="our-team" class="team-section">
+    <h1>Meet Our Team</h1>
+    <p>Our dedicated professionals ensure excellent care and personalized treatment for every patient.</p>
+
+    <!-- Left Arrow -->
+    <button class="arrow left-arrow" onclick="scrollTeam(-1)">&#10094;</button>
+
+    <!-- Team Container -->
+    <div class="team-container">
+        <div class="team-wrapper">
+        <!-- Team Cards -->
+        <div class="team-card">
+            <div class="team-image">
+            <img src="https://media.istockphoto.com/id/1090878494/photo/close-up-portrait-of-young-smiling-handsome-man-in-blue-polo-shirt-isolated-on-gray-background.jpg?s=612x612&w=0&k=20&c=AycQ2obu8sgJxWAJgYBbYR6jeRB9Bhs1JZBXzSgL6LE=" alt="Dr. John William" />
+            </div>
+            <h2>Dr. John William</h2>
+            <p>Specialist Endodontist with over 20 years of experience.</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-image">
+            <img src="https://img.freepik.com/free-photo/closeup-young-female-professional-making-eye-contact-against-colored-background_662251-651.jpg" alt="Dr. Sabrina Swift" />
+            </div>
+            <h2>Dr. Sabrina Swift</h2>
+            <p>Oral and Maxillofacial Surgeon with over 9 years of experience.</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-image">
+            <img src="https://img.freepik.com/free-photo/pretty-smiling-joyfully-female-with-fair-hair-dressed-casually-looking-with-satisfaction_176420-15187.jpg" alt="Dr. Scarlet Johnson" />
+            </div>
+            <h2>Dr. Scarlet Johnson</h2>
+            <p>GP Dentist focused on intensive care with over 12 years of experience.</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-image">
+            <img src="https://media.istockphoto.com/id/1317804578/photo/one-businesswoman-headshot-smiling-at-the-camera.jpg?s=612x612&w=0&k=20&c=EqR2Lffp4tkIYzpqYh8aYIPRr-gmZliRHRxcQC5yylY=" alt="Dr. Camila Shawn" />
+            </div>
+            <h2>Dr. Camila Shawn</h2>
+            <p>Specialist Orthodontist dedicated to creating beautiful smiles with over 15 years of experience.</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-image">
+            <img src="https://as1.ftcdn.net/jpg/03/38/30/80/1000_F_338308078_iiXC8b9lxpxmjGKaKu4dtXHSIVfzE8qm.jpg" alt="Dr. Alex Smith" />
+            </div>
+            <h2>Dr. Alex Smith</h2>
+            <p>GP Dentist focused on preventive care and patient comfort.</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow right-arrow" onclick="scrollTeam(1)">&#10095;</button>
+    </section>
+
+        <!-- Registration Form -->
+        <section id="Registration">
+            <div class="registration-container">
+                <h1>Registration</h1>
+                <form id="mainForm">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" class="input-field" required><br>
+
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" class="input-field" required><br>
+
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" class="input-field" required><br>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" class="input-field" required><br>
+
+                    <label for="appointmentTime">Appointment Time:</label>
+                    <input type="datetime-local" id="appointmentTime" class="input-field" required><br>
+
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" class="input-field" required><br>
+
+                    <label for="treatment">Treatment:</label>
+                    <select id="treatment" class="input-field" onchange="populateDoctors()" required>
+                        <option value="">-- Select Treatment --</option>
+                        <option value="Teeth Cleaning">Teeth Cleaning</option>
+                        <option value="Dental Radiology">Dental Radiology</option>
+                        <option value="Dental Emergency">Dental Emergency</option>
+                        <option value="Teeth Whitening">Teeth Whitening</option>
+                        <option value="Tooth Extraction">Tooth Extraction</option>
+                        <option value="Orthodontic Braces">Orthodontic Braces</option>
+                    </select><br>
+
+                    <label for="doctor">Doctor:</label>
+                    <select id="doctor" class="input-field" required>
+                        <option value="">-- Select Doctor --</option>
+                    </select><br>
+
+                    <button type="submit" class="button">Submit</button><br><br>
+
+                    <div id="successMessage" style="color: green; display: none;"></div>
+                    <div id="errorMessage" style="color: red; display: none;"></div>
+                </form>
+            </div>
+        </section>
+                <!-- Contact Info -->
+        <section id="Contact">
+            <h1 class="contact-heading"> GET IN TOUCH TODAY</h1>
+            <h2 class="center">Contact Us</h2>
+            <p>Address:</p>
+            <p>Sněhulák Smile Dental Clinic, 123 Main Street, City, Country</p><br/>
+            <p>PH: +44 7409224474</p>
+            <p>email: SněhulákSmiledentalclinic@gmail.com</p><br/>
+            <h3 class="center">CLINIC HOURS</h3>
+            <p>Monday - Thursday: 7 am - 12 am</p>
+            <p>Friday - Sunday: 7 am - 2 am </p>
+        </section>
+
+        <!-- Cookie Consent -->
+        <div id="cookieConsentBox" class="floating-box cookie-box">
+            <p>This website uses cookies to ensure you get the best experience.</p>
+            <div class="floating-buttons">
+                <button onclick="acceptCookies()">Accept</button>
+                <button onclick="declineCookies()">Decline</button>
+            </div>
+        </div>
+
+        <!-- Privacy Policy -->
+        <div id="privacyPolicyBox" class="floating-box privacy-box">
+            <h3>Privacy Policy</h3>
+            <p>
+                At Sněhulák Smile Dental Clinic, we prioritize your privacy and are dedicated to ensuring that your personal information is protected. 
+                We collect essential data, such as your contact details, appointment preferences, and health information, solely for the purpose of providing you with our services. 
+                This data is used for appointment scheduling, communication about treatments, and improving the overall service experience. We do not share your personal data with third parties without your consent, 
+                except for trusted partners such as payment processors or email service providers for specific purposes. 
+                You have full control over your data, with rights to access, correct, or request deletion of your information, in accordance with data protection laws. 
+                Your privacy is important to us, and we strive to maintain transparency and trust in how we handle your data.
+            </p>
+            <div class="floating-buttons">
+                <button onclick="acceptPrivacy()">I Agree</button>
+                <button onclick="declinePrivacy()">I Don’t Agree</button>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="floating-box copyright-box">
+            <p>© Sněhulák Smile Dental Clinic 2025. All rights reserved.</p>
+        </div>
+    </main>
+    <!--  Footer -->
+    <footer>
+        <div class="brand_logo-item">
+            <img src="SněhulákSmilelogo.png" alt="brand logo" class="brand-logo" />
+        </div>
+        <h1>Contact Us</h1>
+        <div class="logo-item">
+            <img src="addresslogo.png" alt="Address Logo" />
+            <p>Registered Address: Sněhulák Smile Dental Clinic, 123 Main Street, City, Country</p>
+        </div>
+        <div class="logo-item">
+            <img src="phone-logo.png" alt="Phone Logo" />
+            <p>Registrated PH: +44 7409224474</p>
+        </div>
+        <div class="logo-item">
+            <img src="email-logo.png" alt="Email Logo" />
+            <p> Registrated Email: SněhulákSmiledentalclinic@gmail.com</p>
+        </div>
+        <div class="company-info">
+            <p><strong>Company information</strong></p>
+            <p><strong>Company Name:</strong> Sněhulák Smile Dental Clinic Ltd.</p>
+            <p><strong>VAT Number:</strong> GB123456789</p>
+            <p><strong>Legal Form:</strong> Private Limited Company (Ltd)</p>
+        </div>
+    </footer>
+        
+
+    <script src="javascript_webdev.js"></script>
+
+    <script>
+    // Dynamically populate doctors based on treatment
+    function populateDoctors() {
+        const treatment = document.getElementById("treatment").value;
+        const doctorDropdown = document.getElementById("doctor");
+        doctorDropdown.innerHTML = '<option value="">-- Select Doctor --</option>';
+
+        const doctorsMap = {
+            "Teeth Cleaning": ["Dr. Alex Smith", "Dr. Scarlet Johnson"],
+            "Dental Radiology": ["Dr. John William"],
+            "Dental Emergency": ["Dr. Sabrina Swift", "Dr. Alex Smith"],
+            "Teeth Whitening": ["Dr. Scarlet Johnson", "Dr. Camila Shawn"],
+            "Tooth Extraction": ["Dr. Sabrina Swift"],
+            "Orthodontic Braces": ["Dr. Camila Shawn"]
+        };
+
+        if (treatment && doctorsMap[treatment]) {
+            doctorsMap[treatment].forEach(doctor => {
+                const option = document.createElement("option");
+                option.value = doctor;
+                option.textContent = doctor;
+                doctorDropdown.appendChild(option);
+            });
+        }
+    }
+
+    // Handle form submission and send data to backend
+    document.getElementById("mainForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const formData = {
+            email: document.getElementById("email").value,
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("lastName").value,
+            phone: document.getElementById("phone").value,
+            appointmentTime: document.getElementById("appointmentTime").value,
+            dob: document.getElementById("dob").value,
+            treatment: document.getElementById("treatment").value,
+            doctor: document.getElementById("doctor").value
+        };
+
+        try {
+            const response = await fetch("/submit-appointment", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+            document.getElementById(result.success ? "successMessage" : "errorMessage").textContent = result.message;
+            document.getElementById("successMessage").style.display = result.success ? "block" : "none";
+            document.getElementById("errorMessage").style.display = result.success ? "none" : "block";
+        } catch (err) {
+            document.getElementById("errorMessage").textContent = "Something went wrong.";
+            document.getElementById("errorMessage").style.display = "block";
+            document.getElementById("successMessage").style.display = "none";
+        }
+    });
+</script>
+
+</body>
+</html>

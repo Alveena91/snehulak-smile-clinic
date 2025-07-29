@@ -1,0 +1,733 @@
+﻿/* Importing Google Fonts for use in the site */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* Styles for the homepage background */
+.Home {
+    background-image: url('https://antonovich-design.ae/uploads/gallery/2022/3/antonovich-design-2022rHNK5Ur9Izfh.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Welcome heading styling */
+.welcome-heading {
+    font-size: 4rem;
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
+
+/* Container for rotating text messages */
+.text-container {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Each individual text message animation setup */
+.text {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    animation: text-animation 9s infinite;
+}
+
+    /* Animation delay for each line */
+    .text:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .text:nth-child(2) {
+        animation-delay: 3s;
+    }
+
+    .text:nth-child(3) {
+        animation-delay: 6s;
+    }
+
+/* Keyframes for text animation */
+@keyframes text-animation {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    10%, 30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    40%, 100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+/* Navigation bar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Navigation list layout */
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    /* Navigation list items */
+    .nav-list li {
+        margin-left: 20px;
+    }
+
+        /* Navigation links */
+        .nav-list li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+            /* Hover effect on nav links */
+            .nav-list li a:hover {
+                color: #00bcd4;
+            }
+
+/* Hamburger menu for mobile view */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+}
+
+    /* Hamburger bars */
+    .menu-toggle span {
+        display: block;
+        height: 4px;
+        width: 100%;
+        background-color: white;
+        border-radius: 2px;
+    }
+
+/* Responsive nav list for small screens */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        text-align: center;
+    }
+
+        .nav-list li {
+            margin: 10px 0;
+        }
+
+        .nav-list.active {
+            display: flex;
+        }
+}
+
+/* About section layout */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: #c6c4c4;
+}
+
+/* Grid layout for About content */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Heading in About section */
+.about-heading {
+    text-align: left;
+    color: #333;
+    font-family: Elsie, sans-serif;
+}
+
+    .about-heading h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+    }
+
+/* Image in About section */
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .about-image img {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+        border: 2px solid #ddd;
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+/* Text content in About section */
+.about-content {
+    text-align: left;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Responsive layout for About on smaller screens */
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-heading h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-image img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .about-content {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* Further scaling for very small screens */
+@media (max-width: 480px) {
+    .about-heading h1 {
+        font-size: 2rem;
+    }
+
+    .about-image img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .about-content {
+        font-size: 0.9rem;
+    }
+}
+
+/* Choose Us section layout and typography */
+.choose-us-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+    .choose-us-section h1 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+/* Grid layout for feature cards */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual feature cards */
+.feature-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+/* Feature icon style */
+.icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #00bcd4;
+}
+
+/* Feature title */
+.feature-card h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333;
+    text-align: center;
+}
+
+/* Feature description */
+.feature-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Services section layout */
+.services-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+    .services-section h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #675038;
+    }
+
+    .services-section p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+/* Swiper container for horizontally scrolling cards */
+.services-swiper {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+    .services-swiper::-webkit-scrollbar {
+        display: none;
+    }
+
+/* Individual service card */
+.service-card {
+    flex: 0 0 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    scroll-snap-align: center;
+}
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+/* Image inside service cards */
+.service-image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Service card text styling */
+.service-card h2,
+.services-section h1,
+#service-title {
+    color: #675038;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+/* Service info section */
+.service-info {
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .service-info h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .service-info p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #555;
+    }
+
+/* Responsive styling for service cards */
+@media (max-width: 768px) {
+    .service-card {
+        flex: 0 0 80%;
+    }
+
+    .service-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .service-info p {
+        font-size: 1rem;
+    }
+}
+/* Doctor section layout */
+.team-section {
+    padding: 50px;
+    text-align: center;
+    color: #333;
+    font-family: Arial, sans-serif;
+    position: relative;
+    z-index: 2;
+}
+
+    .team-section h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #675038;
+    }
+
+    .team-section p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+/* Outer container for team members */
+.team-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+/* Scrollable wrapper for team cards */
+.team-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+    /* Hide scrollbar for cleaner look */
+    .team-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+/* Individual team member card */
+.team-card {
+    min-width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+    .team-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #675038;
+    }
+
+    .team-card p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.5;
+    }
+
+/* Team member image styling */
+.team-image img {
+    width: 90%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 100px;
+    margin-bottom: 50px;
+}
+
+/* Navigation arrows for team scroll */
+.team-section .arrow {
+    width: 50px;
+    height: 50px;
+    background-color: #675038;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-section .left-arrow {
+    left: 15px;
+}
+
+.team-section .right-arrow {
+    right: 15px;
+}
+
+.team-section .arrow:hover {
+    background-color: #533c28;
+    transform: scale(1.1);
+}
+
+/* Smaller arrow styling for mobile screens */
+@media (max-width: 768px) {
+    .team-section .arrow {
+        padding: 10px 15px;
+        font-size: 1.5rem;
+    }
+
+    .team-section .left-arrow,
+    .team-section .right-arrow {
+        top: 40%;
+    }
+}
+
+/* Registration section container */
+#Registration {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+    /* Background image overlay with opacity */
+    #Registration::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://antonovich-design.ae/uploads/gallery/2022/3/antonovich-design-2022rTjCvgf83x14.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.6;
+        z-index: 1;
+    }
+
+/* Registration form container styling */
+.registration-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Input field styling */
+.input-field {
+    width: 100%;
+    padding: 2px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Submit button styling */
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    .button:hover {
+        background-color: #4cae4c;
+    }
+
+/* Display messages for form submission */
+#lblSuccess,
+#lblErrorMessage {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Contact section layout */
+#Contact {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Contact section heading font and style */
+.contact-heading {
+    font-family: 'Playfair Display', serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Floating boxes for cookies, privacy, copyright. */
+.floating-box {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 300px;
+    font-family: Arial, sans-serif;
+    z-index: 10000;
+    transition: all 0.3s ease;
+}
+
+/* Adjust floating box positions */
+.cookie-box {
+    bottom: 120px;
+}
+
+.privacy-box {
+    bottom: 220px;
+}
+
+/* Button container inside floating box */
+.floating-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+    /* Buttons inside the floating message boxes */
+    .floating-buttons button {
+        background-color: #a79787;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+        .floating-buttons button:hover {
+            background-color: #8b7769;
+        }
+
+/* copyright text box */
+.copyright-box {
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    background-color: #f5f1e1;
+}
+
+/* Footer layout */
+footer {
+    background-color: #d6cdc5;
+    color: #333;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: Arial, sans-serif;
+}
+
+    footer h1 {
+        margin: 0;
+        padding-bottom: 10px;
+    }
+
+    footer p {
+        margin: 5px 0;
+    }
+
+/* Footer logo items */
+.logo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+    .logo-item img {
+        width: 30px;
+        height: auto;
+        margin-right: 10px;
+    }
+
+/* Brand logo image in footer */
+.brand_logo-item img {
+    width: 100px;
+    height: auto;
+}
