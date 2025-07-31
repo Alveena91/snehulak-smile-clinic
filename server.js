@@ -11,7 +11,7 @@ const port = 3001;
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(session({
-    secret: 'yourSecretKey', // Change this to something secure
+    secret: 'yourSecretKey', 
     resave: false,
     saveUninitialized: true
 }));
