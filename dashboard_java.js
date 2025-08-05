@@ -101,8 +101,8 @@ function createTableRows(data) {
             <tr>
                 <th>ID</th>
                 <th>Email</th>
-                <th>First</th>
-                <th>Last</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Phone</th>
                 <th>Time</th>
                 <th>DOB</th>
@@ -168,3 +168,4 @@ async function loadAppointments() {
         }
     }
 }
+
