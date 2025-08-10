@@ -15,12 +15,13 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// 🔌 Connect to Supabase PostgreSQL (replace with your actual connection string)
+// Connect to Supabase PostgreSQL using DATABASE_URL from env
 const pool = new Pool({
-    connectionString: 'postgresql://postgres:mypassword123@db.lwobdoiayyikpzfzpoqq.supabase.co:5432/postgres'
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }  // Required for Supabase SSL connection
 });
 
-// 🔧 Create appointments table (if it doesn't exist)
+// Create appointments table if it doesn't exist
 pool.query(`
     CREATE TABLE IF NOT EXISTS appointments (
         id SERIAL PRIMARY KEY,
@@ -35,7 +36,7 @@ pool.query(`
     )
 `).catch(console.error);
 
-// 📥 Handle appointment submission
+// Appointment submission route
 app.post('/submit-appointment', async (req, res) => {
     const d = req.body;
 
@@ -47,15 +48,15 @@ app.post('/submit-appointment', async (req, res) => {
 
         res.json({ success: true, message: 'Appointment saved successfully!' });
     } catch (err) {
-        console.error(err);
+        console.error('Error inserting appointment:', err);
         res.status(500).json({ success: false, message: 'Failed to save appointment.' });
     }
 });
 
-// 🔐 Login route (hardcoded for demo)
+// Login route (hardcoded)
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-    const validUser = username === 'admin' && password === 'password123';
+    const validUser = username === 'admin' && password === 'password123'; // Your credentials
     if (validUser) {
         req.session.username = username;
         res.json({ success: true });
@@ -64,7 +65,7 @@ app.post('/login', (req, res) => {
     }
 });
 
-// 🔎 Check if user is authenticated
+// Check auth route
 app.get('/check-auth', (req, res) => {
     if (req.session.username) {
         res.json({ loggedIn: true, username: req.session.username });
@@ -73,7 +74,7 @@ app.get('/check-auth', (req, res) => {
     }
 });
 
-// 📄 Fetch all appointments
+// Fetch all appointments
 app.get('/appointments', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM appointments');
@@ -83,8 +84,7 @@ app.get('/appointments', async (req, res) => {
     }
 });
 
-// 🚀 Start the server
+// Start server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
-
