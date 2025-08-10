@@ -11,17 +11,19 @@ const port = 3001;
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(session({
-    secret: 'yourSecretKey', 
+    secret: 'yourSecretKey',
     resave: false,
     saveUninitialized: true
 }));
 
-// SQLite setup
-const db = new sqlite3.Database('./appointments.db', (err) => {
+//Use persistent path for SQLite on Render
+const dbPath = path.join('/data', 'appointments.db');
+const db = new sqlite3.Database(dbPath, (err) => {
     if (err) return console.error(err.message);
-    console.log('Connected to appointments.db');
+    console.log('Connected to persistent appointments.db');
 });
 
+// Create table if not exists
 db.run(`
     CREATE TABLE IF NOT EXISTS appointments (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -55,13 +57,13 @@ app.post('/submit-appointment', (req, res) => {
     });
 });
 
-// Simple login route (hardcoded credentials)
+// Simple login route (credentials)
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-    // Demo credentials
+    // credentials
     const validUser = username === 'admin' && password === 'password123';
     if (validUser) {
-        req.session.username = username; // Set session
+        req.session.username = username;
         res.json({ success: true });
     } else {
         res.json({ success: false, message: 'Invalid username or password.' });
@@ -79,12 +81,12 @@ app.get('/check-auth', (req, res) => {
 
 // Get all appointments
 app.get('/appointments', (req, res) => {
-  db.all('SELECT * FROM appointments', [], (err, rows) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-    res.json(rows);
-  });
+    db.all('SELECT * FROM appointments', [], (err, rows) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(rows);
+    });
 });
 
 // Start server
