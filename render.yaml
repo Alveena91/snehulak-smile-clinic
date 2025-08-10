@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: snehulak-smile-dental-clinic
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free 
