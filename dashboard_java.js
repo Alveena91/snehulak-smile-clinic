@@ -87,10 +87,10 @@ function createTableRows(data) {
         <tr>
             <td>${d.id}</td>
             <td>${d.email}</td>
-            <td>${d.firstName}</td>
-            <td>${d.lastName}</td>
+            <td>${d.firstname}</td>
+            <td>${d.lastname}</td>
             <td>${d.phone}</td>
-            <td>${d.appointmentTime}</td>
+            <td>${d.appointmenttime}</td>
             <td>${d.dob}</td>
             <td>${d.treatment}</td>
             <td>${d.doctor}</td>
@@ -148,8 +148,8 @@ async function loadAppointments() {
             return;
         }
 
-        const future = appointments.filter(app => isFuture(app.appointmentTime));
-        const past = appointments.filter(app => isPast(app.appointmentTime));
+        const future = appointments.filter(app => isFuture(app.appointmenttime));
+        const past = appointments.filter(app => isPast(app.appointmenttime));
 
         console.log("Future appointments:", future);
         console.log("Past appointments:", past);
@@ -168,4 +168,5 @@ async function loadAppointments() {
         }
     }
 }
+
 
