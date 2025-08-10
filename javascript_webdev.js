@@ -140,10 +140,10 @@ document.getElementById("mainForm").addEventListener("submit", async function (e
 
     const formData = {
         email: document.getElementById("email").value,
-        firstName: document.getElementById("firstName").value,
-        lastName: document.getElementById("lastName").value,
+        firstName: document.getElementById("firstname").value,
+        lastName: document.getElementById("lastname").value,
         phone: document.getElementById("phone").value,
-        appointmentTime: document.getElementById("appointmentTime").value,
+        appointmentTime: document.getElementById("appointmenttime").value,
         dob: document.getElementById("dob").value,
         treatment: document.getElementById("treatment").value,
         doctor: document.getElementById("doctor").value
@@ -171,3 +171,4 @@ document.getElementById("mainForm").addEventListener("submit", async function (e
         }, 1500);
     }
 });
+
