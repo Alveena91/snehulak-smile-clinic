@@ -6,7 +6,7 @@ const { Pool } = require('pg');
 const app = express();
 const port = process.env.PORT || 3001;
 
-// Middleware
+// === Middleware ===
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(session({
@@ -15,13 +15,13 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// Connect to Supabase PostgreSQL using DATABASE_URL from env
+// === PostgreSQL connection using environment variable ===
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false }  // Required for Supabase SSL connection
+    ssl: { rejectUnauthorized: false } // Required for Supabase
 });
 
-// Create appointments table if it doesn't exist
+// === Create the table if it doesn't exist ===
 pool.query(`
     CREATE TABLE IF NOT EXISTS appointments (
         id SERIAL PRIMARY KEY,
@@ -33,30 +33,42 @@ pool.query(`
         dob TEXT,
         treatment TEXT,
         doctor TEXT
-    )
-`).catch(console.error);
+    );
+`).then(() => console.log("✅ Table ensured"))
+  .catch(err => console.error("❌ Error creating table:", err));
 
-// Appointment submission route
+// === Submit appointment ===
 app.post('/submit-appointment', async (req, res) => {
     const d = req.body;
+
+    const email = d.email;
+    const firstname = d.firstName || d.firstname;
+    const lastname = d.lastName || d.lastname;
+    const phone = d.phone;
+    const appointmenttime = d.appointmentTime || d.appointmenttime;
+    const dob = d.dob;
+    const treatment = d.treatment;
+    const doctor = d.doctor;
 
     try {
         await pool.query(`
             INSERT INTO appointments (email, firstname, lastname, phone, appointmenttime, dob, treatment, doctor)
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-        `, [d.email, d.firstname, d.lastname, d.phone, d.appointmenttime, d.dob, d.treatment, d.doctor]);
+        `, [email, firstname, lastname, phone, appointmenttime, dob, treatment, doctor]);
 
+        console.log("✅ Appointment saved:", { firstname, lastname, appointmenttime });
         res.json({ success: true, message: 'Appointment saved successfully!' });
     } catch (err) {
-        console.error('Error inserting appointment:', err);
+        console.error("❌ Error inserting appointment:", err);
         res.status(500).json({ success: false, message: 'Failed to save appointment.' });
     }
 });
 
-// Login route (hardcoded)
+// === Admin login ===
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-    const validUser = username === 'admin' && password === 'password123'; // Your credentials
+    const validUser = username === 'admin' && password === 'password123';
+
     if (validUser) {
         req.session.username = username;
         res.json({ success: true });
@@ -65,7 +77,7 @@ app.post('/login', (req, res) => {
     }
 });
 
-// Check auth route
+// === Auth check ===
 app.get('/check-auth', (req, res) => {
     if (req.session.username) {
         res.json({ loggedIn: true, username: req.session.username });
@@ -74,17 +86,18 @@ app.get('/check-auth', (req, res) => {
     }
 });
 
-// Fetch all appointments
+// === Fetch all appointments ===
 app.get('/appointments', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM appointments');
         res.json(result.rows);
     } catch (err) {
+        console.error("❌ Error fetching appointments:", err);
         res.status(500).json({ error: err.message });
     }
 });
 
-// Start server
+// === Start server ===
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`🚀 Server running at http://localhost:${port}`);
 });
