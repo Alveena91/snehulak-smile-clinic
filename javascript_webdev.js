@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Mobile Menu Toggle
     const menuToggle = document.getElementById("menu-toggle");
     const navList = document.querySelector(".nav-list");
-
     if (menuToggle && navList) {
         menuToggle.addEventListener("click", () => {
             navList.classList.toggle("active");
         });
     }
+
 
     // Cookie Consent Display
     const cookieConsent = document.getElementById("cookieConsent");
@@ -172,5 +172,6 @@ document.getElementById("mainForm").addEventListener("submit", async function (e
         }, 1500);
     }
 });
+
 
 
