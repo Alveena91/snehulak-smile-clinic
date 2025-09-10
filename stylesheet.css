@@ -148,7 +148,8 @@
         width: 100%;
         background-color: #333;
         text-align: center;
-    }
+        z-index: 9999;
+     }
 
         .nav-list li {
             margin: 10px 0;
@@ -731,3 +732,4 @@ footer {
     width: 100px;
     height: auto;
 }
+
