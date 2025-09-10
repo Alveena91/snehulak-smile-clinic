@@ -132,46 +132,52 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-document.getElementById("mainForm").addEventListener("submit", async function (e) {
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("mainForm");
+
+  // Remove any existing event listeners by cloning and replacing the form
+  const newForm = form.cloneNode(true);
+  form.parentNode.replaceChild(newForm, form);
+
+  newForm.addEventListener("submit", async function (e) {
     e.preventDefault();
+    console.log("Form submitted"); // Debug: check if triggered multiple times
 
     // Disable the submit button to prevent double submission
     const submitBtn = this.querySelector('button[type="submit"], input[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
 
     const formData = {
-        email: document.getElementById("email").value,
-        firstName: document.getElementById("firstname").value,
-        lastName: document.getElementById("lastname").value,
-        phone: document.getElementById("phone").value,
-        appointmentTime: document.getElementById("appointmenttime").value,
-        dob: document.getElementById("dob").value,
-        treatment: document.getElementById("treatment").value,
-        doctor: document.getElementById("doctor").value
+      email: document.getElementById("email").value,
+      firstName: document.getElementById("firstname").value,
+      lastName: document.getElementById("lastname").value,
+      phone: document.getElementById("phone").value,
+      appointmentTime: document.getElementById("appointmenttime").value,
+      dob: document.getElementById("dob").value,
+      treatment: document.getElementById("treatment").value,
+      doctor: document.getElementById("doctor").value
     };
 
     try {
-        const response = await fetch("/submit-appointment", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-        });
+      const response = await fetch("/submit-appointment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
 
-        const result = await response.json();
-        document.getElementById(result.success ? "successMessage" : "errorMessage").textContent = result.message;
-        document.getElementById("successMessage").style.display = result.success ? "block" : "none";
-        document.getElementById("errorMessage").style.display = result.success ? "none" : "block";
+      const result = await response.json();
+      document.getElementById(result.success ? "successMessage" : "errorMessage").textContent = result.message;
+      document.getElementById("successMessage").style.display = result.success ? "block" : "none";
+      document.getElementById("errorMessage").style.display = result.success ? "none" : "block";
     } catch (err) {
-        document.getElementById("errorMessage").textContent = "Something went wrong.";
-        document.getElementById("errorMessage").style.display = "block";
-        document.getElementById("successMessage").style.display = "none";
+      document.getElementById("errorMessage").textContent = "Something went wrong.";
+      document.getElementById("errorMessage").style.display = "block";
+      document.getElementById("successMessage").style.display = "none";
     } finally {
-        // Re-enable the submit button after a short delay
-        setTimeout(() => {
-            if (submitBtn) submitBtn.disabled = false;
-        }, 1500);
+      // Re-enable the submit button after a short delay
+      setTimeout(() => {
+        if (submitBtn) submitBtn.disabled = false;
+      }, 1500);
     }
+  });
 });
-
-
-
