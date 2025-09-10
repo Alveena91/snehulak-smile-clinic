@@ -181,3 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dobInput = document.getElementById("dob");
+  const today = new Date().toISOString().split("T")[0]; 
+  dobInput.setAttribute("max", today);
+});
